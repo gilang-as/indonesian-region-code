@@ -18,7 +18,7 @@ const Main = async () => {
             provinces_sql.push(`(null, "${provinces.data[p].kode_dagri}", "${provinces.data[p].nama_dagri.replace('"', "'")}")`)
             provinces_json.push({id: p+1, code: provinces.data[p].kode_dagri, name: provinces.data[p].nama_dagri.replace('"', "'")})
 
-            const province_dir = `data/json-split/${provinces.data[p].kode_dagri}/`
+            const province_dir = `docs/json-split/${provinces.data[p].kode_dagri}/`
             if (!fs.existsSync(province_dir)){
                 fs.mkdirSync(province_dir);
             }
@@ -29,7 +29,7 @@ const Main = async () => {
                 if (err) throw err;
             });
 
-            fs.writeFile(`data/json-single/${provinces.data[p].kode_dagri}.json`, JSON.stringify({
+            fs.writeFile(`docs/json-single/${provinces.data[p].kode_dagri}.json`, JSON.stringify({
                 code: provinces.data[p].kode_dagri,
                 name: provinces.data[p].nama_dagri.replace('"', "'")
             }), function (err) {
@@ -53,7 +53,7 @@ const Main = async () => {
                     if (err) throw err;
                 });
 
-                fs.writeFile(`data/json-single/${regencies.data[r].kode_dagri.replace(/\./g, "")}.json`, JSON.stringify({
+                fs.writeFile(`docs/json-single/${regencies.data[r].kode_dagri.replace(/\./g, "")}.json`, JSON.stringify({
                     code: regencies.data[r].kode_dagri.replace(/\./g, ""),
                     province_code: provinces.data[p].kode_dagri,
                     name: regencies.data[r].nama_dagri.replace('"', "'")
@@ -79,7 +79,7 @@ const Main = async () => {
                         if (err) throw err;
                     });
 
-                    fs.writeFile(`data/json-single/${districts.data[d].kode_dagri.replace(/\./g, "")}.json`, JSON.stringify({
+                    fs.writeFile(`docs/json-single/${districts.data[d].kode_dagri.replace(/\./g, "")}.json`, JSON.stringify({
                         code: districts.data[d].kode_dagri.replace(/\./g, ""),
                         province_code: provinces.data[p].kode_dagri,
                         regency_code: regencies.data[r].kode_dagri.replace(/\./g, ""),
@@ -103,7 +103,7 @@ const Main = async () => {
                             if (err) throw err;
                         });
 
-                        fs.writeFile(`data/json-single/${villages.data[v].kode_dagri.replace(/\./g, "")}.json`, JSON.stringify({
+                        fs.writeFile(`docs/json-single/${villages.data[v].kode_dagri.replace(/\./g, "")}.json`, JSON.stringify({
                             code: villages.data[v].kode_dagri.replace(/\./g, ""),
                             province_code: provinces.data[p].kode_dagri,
                             regency_code: regencies.data[r].kode_dagri.replace(/\./g, ""),
@@ -124,46 +124,46 @@ const Main = async () => {
 
         // SQL
         const insert_province_sql = `INSERT INTO master_provinces (id, code, name) values ${provinces_sql.join(",")}`
-        fs.writeFile('data/mysql/provinces.sql', insert_province_sql, function (err) {
+        fs.writeFile('docs/mysql/provinces.sql', insert_province_sql, function (err) {
             if (err) throw err;
             console.log('Provinces sql file is created successfully.');
         });
 
         const insert_regency_sql = `INSERT INTO master_regencies (id, code, province_code, name) values ${regencies_sql.join(",")}`
-        fs.writeFile('data/mysql/regencies.sql', insert_regency_sql, function (err) {
+        fs.writeFile('docs/mysql/regencies.sql', insert_regency_sql, function (err) {
             if (err) throw err;
             console.log('Regencies sql file is created successfully.');
         });
 
         const insert_district_sql = `INSERT INTO master_districts (id, code, province_code, regency_code, name) values ${districts_sql.join(",")}`
-        fs.writeFile('data/mysql/districts.sql', insert_district_sql, function (err) {
+        fs.writeFile('docs/mysql/districts.sql', insert_district_sql, function (err) {
             if (err) throw err;
             console.log('Districts sql file is created successfully.');
         });
 
         const insert_village_sql = `INSERT INTO master_villages (id, code, province_code, regency_code, district_code, name) values ${villages_sql.join(",")}`
-        fs.writeFile('data/mysql/villages.sql', insert_village_sql, function (err) {
+        fs.writeFile('docs/mysql/villages.sql', insert_village_sql, function (err) {
             if (err) throw err;
             console.log('Villages sql file is created successfully.');
         });
 
         // JSON
-        fs.writeFile('data/json-full/provinces.json', JSON.stringify(provinces_json), function (err) {
+        fs.writeFile('docs/json-full/provinces.json', JSON.stringify(provinces_json), function (err) {
             if (err) throw err;
             console.log('Provinces JSON file is created successfully.');
         });
 
-        fs.writeFile('data/json-full/regencies.json', JSON.stringify(regencies_json), function (err) {
+        fs.writeFile('docs/json-full/regencies.json', JSON.stringify(regencies_json), function (err) {
             if (err) throw err;
             console.log('Regencies JSON file is created successfully.');
         });
 
-        fs.writeFile('data/json-full/districts.json', JSON.stringify(districts_json), function (err) {
+        fs.writeFile('docs/json-full/districts.json', JSON.stringify(districts_json), function (err) {
             if (err) throw err;
             console.log('Districts JSON file is created successfully.');
         });
 
-        fs.writeFile('data/json-full/villages.json', JSON.stringify(villages_json), function (err) {
+        fs.writeFile('docs/json-full/villages.json', JSON.stringify(villages_json), function (err) {
             if (err) throw err;
             console.log('Villages JSON file is created successfully.');
         });
