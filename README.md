@@ -65,6 +65,14 @@ npm run main.js
 | Districts | https[]()://sig.bps.go.id/rest-bridging/getwilayah?level=kecamatan&parent=**{regency-id}** |
 | Villages | https[]()://sig.bps.go.id/rest-bridging/getwilayah?level=kecamatan&parent=**{district-id}** |
 
+## ToDo
++ Single JSON ✅
++ Split JSON ✅
++ Full JSON ✅
++ SQL ✅
++ Mongo ❌ (From JSON)
++ Generate Data With GitHub Actions
+
 ## License
 
 * The scripts are license under: [MIT](LICENSE).

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title> "First Page" </title>
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+</head>
+
+<body>
+
+<script>
+
+    // You can add your logic to geerate JSON
+    var customJSON = "[{"id":"1","name":"TEST_1"},{"id":"2","name":"TEST_2"},{"id":"3","name":"TEST_3"},{"id":"4","name":"TEST_4"},{"id":"5","name":"TEST_5"}]"
+
+    // Send a message for the outer page
+    window.top.postMessage(customJSON, '*')
+
+</script>
+</body>
+
+</html>

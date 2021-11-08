@@ -14,4 +14,4 @@
 | Province | https[]()://gilang-as.github.io/indonesian-region-code/json-split/**{code}**/index.json | https[]()://gilang-as.github.io/indonesian-region-code/json-split/11/index.json |
 | Regency | https[]()://gilang-as.github.io/indonesian-region-code/json-split/**{code}**/**{code}**/index.json | https[]()://gilang-as.github.io/indonesian-region-code/json-split/11/01/index.json |
 | District | https[]()://gilang-as.github.io/indonesian-region-code/json-split/**{code}**/**{code}**/**{code}**/index.json | https[]()://gilang-as.github.io/indonesian-region-code/json-split/11/01/01/index.json |
-| Village | https[]()://gilang-as.github.io/indonesian-region-code/json-split/**{code}**/**{code}**/**{code}**/**{code}**.json | https[]()://gilang-as.github.io/indonesian-region-code/json-split/11/01/01/2021.json |
+| Village | https[]()://gilang-as.github.io/indonesian-region-code/json-split/**{code}**/**{code}**/**{code}**/**{code}**.json | https[]()://gilang-as.github.io/indonesian-region-code/json-split/11/01/01/2001.json |
